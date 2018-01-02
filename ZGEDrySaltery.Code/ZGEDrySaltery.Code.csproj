@@ -118,6 +118,12 @@
     <Compile Include="Web\Tree\TreeSelectModel.cs" />
     <Compile Include="Web\WebHelper.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZGEDrySaltery.Model\ZGEDrySaltery.Model.csproj">
+      <Project>{de9b3adf-7554-4201-8e72-f17e6c268996}</Project>
+      <Name>ZGEDrySaltery.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ZGEDrySaltery.Code;
+using ZGEDrySaltery.Model;
 using ZGEDrySaltery.Web;
 
 namespace NFine.Web.Controllers
@@ -48,7 +49,27 @@ namespace NFine.Web.Controllers
         [HandlerAjaxOnly]
         public ActionResult CheckLogin(string username, string password, string code)
         {
-            return Content(new AjaxResult { state = ResultType.success.ToString(), message = "登录成功。" }.ToJson());
+            try
+            {
+                if (Session["nfine_session_verifycode"].IsEmpty() || Md5.md5(code.ToLower(), 16) != Session["nfine_session_verifycode"].ToString())
+                {
+                    throw new Exception("验证码错误，请重新输入");
+                }
+                S_USER user = ZGEDrySaltery.BLL.SUserBLL.GetInstance().CheckLogin(username, password);
+                if (user != null && user.USER_ID != 0)
+                {
+                    OperatorProvider.Provider.AddCurrent(user);
+                    return Content(new AjaxResult { state = ResultType.success.ToString(), message = "登录成功。" }.ToJson());
+                }
+                else
+                {
+                    return Content(new AjaxResult { state = ResultType.error.ToString(), message = "该用户不存在。" }.ToJson());
+                }
+            }
+            catch (Exception ex)
+            {
+                return Content(new AjaxResult { state = ResultType.error.ToString(), message = "登录失败，" + ex.Message }.ToJson());
+            }
         }
     }
 }

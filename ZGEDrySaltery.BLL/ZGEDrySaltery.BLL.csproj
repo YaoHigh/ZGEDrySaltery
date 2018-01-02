@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,6 +41,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SUserBLL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZGEDrySaltery.Code\ZGEDrySaltery.Code.csproj">
+      <Project>{db19ce03-c307-43fe-a209-08aa4ae10e21}</Project>
+      <Name>ZGEDrySaltery.Code</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZGEDrySaltery.DAL\ZGEDrySaltery.DAL.csproj">
+      <Project>{07683306-1c72-4f4e-b121-77d802c8f168}</Project>
+      <Name>ZGEDrySaltery.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZGEDrySaltery.Model\ZGEDrySaltery.Model.csproj">
+      <Project>{de9b3adf-7554-4201-8e72-f17e6c268996}</Project>
+      <Name>ZGEDrySaltery.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

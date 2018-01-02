@@ -129,8 +129,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\framework-about.css" />
     <Content Include="Content\css\framework-font.css" />
     <Content Include="Content\css\framework-login.css" />
@@ -358,10 +356,8 @@
     <Content Include="Content\js\zsign\signet.gif" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Configs\database.config" />
     <Content Include="Configs\log4net.config" />
     <Content Include="Configs\system.config" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
@@ -410,9 +406,17 @@
     <Content Include="Views\Home\Default.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ZGEDrySaltery.BLL\ZGEDrySaltery.BLL.csproj">
+      <Project>{c1afe45f-205b-4463-b1c1-501e675b2ecc}</Project>
+      <Name>ZGEDrySaltery.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ZGEDrySaltery.Code\ZGEDrySaltery.Code.csproj">
       <Project>{db19ce03-c307-43fe-a209-08aa4ae10e21}</Project>
       <Name>ZGEDrySaltery.Code</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZGEDrySaltery.Model\ZGEDrySaltery.Model.csproj">
+      <Project>{de9b3adf-7554-4201-8e72-f17e6c268996}</Project>
+      <Name>ZGEDrySaltery.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

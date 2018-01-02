@@ -12,6 +12,10 @@
     <script src="~/Content/js/framework-ui.js"></script>
     <script src="~/Content/js/framework-clientdata.js"></script>
 </head>
+@{
+    ZGEDrySaltery.Model.S_USER suer = ZGEDrySaltery.Code.OperatorProvider.Provider.GetCurrent();
+    string username = string.IsNullOrEmpty(suer.REAL_NAME) ? suer.USER_NAME : suer.REAL_NAME;
+}
 <body style="overflow: hidden;">
     <div id="ajax-loader" style="cursor: progress; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%; background: #fff; z-index: 10000; overflow: hidden;">
         <img src="~/Content/img/ajax-loader.gif" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto;" />
@@ -65,7 +69,7 @@
                             <li class="dropdown profile-dropdown">
                                 <a href="#" class="dropdown" data-toggle="dropdown">
                                     <img src="~/Content/img/samples/scarlet-159.png" alt="" />
-                                    <span class="hidden-xs">@NFine.Code.OperatorProvider.Provider.GetCurrent().UserCode</span>
+                                    <span class="hidden-xs">@username</span>
                                 </a>
                                 <ul class="dropdown-menu pull-right">
                                     <li><a class="menuItem" data-id="userInfo" href="/SystemManage/User/Info"><i class="fa fa-user"></i>个人信息</a></li>
@@ -90,7 +94,7 @@
                                 <img alt="" src="~/Content/img/samples/scarlet-159.png" />
                                 <div class="user-box">
                                     <span class="name">
-                                        @NFine.Code.OperatorProvider.Provider.GetCurrent().UserCode;@NFine.Code.OperatorProvider.Provider.GetCurrent().UserName
+                                        @username
                                     </span>
                                     <span class="status">
                                         <i class="fa fa-circle"></i>在线

@@ -18,9 +18,9 @@ namespace ZGEDrySaltery.DbHelper
                 string str = System.AppDomain.CurrentDomain.BaseDirectory;// @"D:\CampusApi\SmartCampusAPI\";
                 string[] split = str.TrimEnd('\\').Split('\\');
                 List<string> lstSplit = split.ToList();
-                lstSplit.RemoveAt(lstSplit.Count - 1);
-                //string joinSplit = string.Join("\\", lstSplit);
-                string siteConfigFile = lstSplit + "\\Web.config";
+                //lstSplit.RemoveAt(lstSplit.Count - 1);
+                string joinSplit = string.Join("\\", lstSplit);
+                string siteConfigFile = joinSplit + "\\Web.config";
                 map.ExeConfigFilename = siteConfigFile;//@"D:/ConfigFile.config"; 
                 Configuration config = ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);               
                 string _connectionString = config.AppSettings.Settings["ConnectionString"].Value;     
